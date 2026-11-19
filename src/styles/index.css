@@ -1,0 +1,148 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  /* Solid Flat Theme Colors (Light Default) */
+  --bg-main: #F5F1E8;         /* Off-white background */
+  --bg-surface: #FFFFFF;      /* Clean solid card surface */
+  --bg-card: #FFFFFF;
+  --bg-sidebar: #0B1F3A;      /* Signature Navy */
+  --bg-subtle: #EDE8DE;
+  --bg-hover: #E7E0D3;
+
+  --text-ink: #101828;        /* Deep solid ink */
+  --text-muted: #536471;
+  --text-subtle: #8292A1;
+  
+  --border-subtle: #E2DBD0;
+  --border-focus: #0B1F3A;
+
+  /* Accent Color (Default Gold, customizable in branding) */
+  --accent-color: #C9A24B;
+  --accent-hover: #B58E38;
+  --accent-subtle: #FDF9F0;
+  --accent-text: #664C11;
+
+  /* Semantic Solids */
+  --color-success: #1F8A5B;
+  --color-warning: #D98A1B;
+  --color-danger: #C23B3B;
+  --color-info: #2F6FB5;
+
+  --sidebar-text: #E2E8F0;
+  --sidebar-text-muted: #8EA3BF;
+  --sidebar-active-bg: #16335C;
+  --sidebar-border: #183359;
+}
+
+.dark {
+  /* Solid Flat Dark Mode */
+  --bg-main: #06101E;         /* Deepest solid navy */
+  --bg-surface: #0B1B32;      /* Solid navy card surface */
+  --bg-card: #0F233F;
+  --bg-sidebar: #081528;
+  --bg-subtle: #142845;
+  --bg-hover: #193358;
+
+  --text-ink: #F8FAFC;        /* Crisp off-white */
+  --text-muted: #94A3B8;
+  --text-subtle: #64748B;
+
+  --border-subtle: #1D375B;
+  --border-focus: #C9A24B;
+
+  --accent-color: #C9A24B;
+  --accent-hover: #DCB45B;
+  --accent-subtle: #1D2A3A;
+  --accent-text: #EED28B;
+
+  /* Dark Semantic Solids */
+  --color-success: #229D67;
+  --color-warning: #E59522;
+  --color-danger: #D14545;
+  --color-info: #3A81D1;
+
+  --sidebar-text: #F1F5F9;
+  --sidebar-text-muted: #7E95B3;
+  --sidebar-active-bg: #153257;
+  --sidebar-border: #142B4B;
+}
+
+/* Base resets & typography */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  background-color: var(--bg-main);
+  color: var(--text-ink);
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Manrope', 'Inter', sans-serif;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+}
+
+/* Custom scrollbars (minimal, flat) */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--border-subtle);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--text-subtle);
+}
+
+/* Hide scrollbar utility */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+/* Animations & Form Shake */
+@keyframes shake {
+  0%, 100% { transform: translateX(0); }
+  20%, 60% { transform: translateX(-6px); }
+  40%, 80% { transform: translateX(6px); }
+}
+
+.animate-shake {
+  animation: shake 0.4s ease-in-out;
+}
+
+/* Prevent text selection during drag */
+.is-dragging {
+  user-select: none;
+  cursor: grabbing !important;
+}
+
+/* Flat solid print styles for Proposals */
+@media print {
+  body {
+    background: #FFFFFF !important;
+    color: #101828 !important;
+  }
+  .no-print {
+    display: none !important;
+  }
+}
